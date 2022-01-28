@@ -67,6 +67,10 @@ class Fitness
 
     function bestIndividus($fits)
     {
+        if(empty($fits)) {
+            return $bestFitnessValue = [];
+        }
+
         $countedMaxFitness = array_count_values(array_column($fits, 'fitnessValue'));
         $maxFitness = max(array_keys($countedMaxFitness));
         $numberOfIndividuHasMaxFitness = $countedMaxFitness[$maxFitness];

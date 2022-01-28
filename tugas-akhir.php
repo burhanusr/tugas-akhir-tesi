@@ -55,6 +55,11 @@ class Algen
         $population = (new Population($this))->createRandomPopulation($this->popSize);
         $fitIndividus = $fitness->fitnessEvaluation($population);
         $bestIndividus = $fitness->bestIndividus($fitIndividus);
+
+        if(empty($bestIndividus)) {
+            return $bestIndividus;
+        }
+        
         $bestIndividuIsFound = $this->isFound($bestIndividus);
 
         $iter = 0;
